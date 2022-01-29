@@ -22,7 +22,7 @@ docker run --name tms -p 5600:3306 -e MYSQL_ROOT_PASSWORD= -d mysql
 redis
 docker run -itd --name redisServer -p 6379:6379 redis --requirepass "password"
 
-## ***windows开始测试模式
+## ***windows开始测试模式***
 
 bcdedit /set nointegritychecks o  
 
