@@ -24,8 +24,10 @@ docker run -itd --name redisServer -p 6379:6379 redis --requirepass "password"
 
 ## ***windows开始测试模式
 
-bcdedit /set nointegritychecks o
-bcdedit /set testsigning on
+bcdedit /set nointegritychecks o  
+
+bcdedit /set testsigning on  
+
 shutdown  -r -t 0
 
 ## ***Js在数组中删除某个对象***
