@@ -14,7 +14,7 @@ npm install 软件名 --registry https://registry.npm.taobao.org
 
 ssh-keygen -R 服务器ip地址
 
-## ***使用Docker创建一个MySQL实例用来测试，宿主机或DOcker实例重启或者容器删除后数据等全部丢失***
+## ***使用Docker创建一个MySQL实例用来测试，宿主机或Docker实例删除后数据等全部丢失***
 
 -p 宿主机端口：容器端口
 docker run --name tms -p 5600:3306 -e MYSQL_ROOT_PASSWORD= -d mysql
