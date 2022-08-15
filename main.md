@@ -14,6 +14,30 @@ npm install 软件名 --registry https://registry.npm.taobao.org
 
 ssh-keygen -R 服务器ip地址
 
+## ***Docker创建Niginx，并附带配置文件***
+
+mkdir -p /home/nginx/conf
+mkdir -p /home/nginx/log
+mkdir -p /home/nginx/html
+
+# 生成容器
+docker run --name nginx -p 9001:80 -d nginx
+# 将容器nginx.conf文件复制到宿主机
+docker cp nginx:/etc/nginx/nginx.conf /home/nginx/conf/nginx.conf
+# 将容器conf.d文件夹下内容复制到宿主机
+docker cp nginx:/etc/nginx/conf.d /home/nginx/conf/conf.d
+# 将容器中的html文件夹复制到宿主机
+docker cp nginx:/usr/share/nginx/html /home/nginx/
+
+sudo docker run \
+-p 80:80 \
+--name nginx \
+-v /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v /home/nginx/conf/conf.d:/etc/nginx/conf.d \
+-v /home/nginx/log:/var/log/nginx \
+-v /home/nginx/html:/usr/share/nginx/html \
+-d nginx:latest
+
 ## ***使用Docker创建一个MySQL实例用来测试，宿主机或Docker实例删除后数据等全部丢失***
 
 -p 宿主机端口：容器端口
